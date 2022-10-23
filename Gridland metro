@@ -1,0 +1,24 @@
+n,m,k=list(map(int,input().split()))
+total=n*m
+c=0
+x=[]
+for i in range(k):
+    x.append(list(map(int,input().split())))
+d={}
+for i in range(len(x)):
+    r=x[i][0]
+    c1=x[i][1]
+    c2=x[i][2]
+    if r not in d:
+        d[r]=[c1,c2]        
+    elif c1>d[r][1]:
+        total-=c2-c1+1
+    elif c2>d[r][1]:
+        d[r][1]=c2
+tracks=0
+for r in d:
+    tracks=tracks+d[r][1]-d[r][0]+1
+res=total-tracks
+print(res)
+        
+    
